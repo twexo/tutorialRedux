@@ -1,0 +1,67 @@
+Redux:
+-store
+-actions
+-reducers
+
+Modul 6,7
+
+What is immutability?
+    -to change state u must return a new state
+        how to  create a new state
+          object.assign (target,sources)
+            example: Object.assign({},state,{role:"admin"});/// first param :empty object  second :state third:the changed data
+          spread operator:
+            const newState={...state.role:'admin'}
+            const newUsers =[...state.users]
+          immer 
+    -avoid push pop reverse 
+    -use map filter reduce concat spread
+                                                                                                                                                            course 7 video 4
+
+    actions: - Represent user intent
+             - Must have a type
+
+    Store:   - dispatch,subscribe,getState
+
+    Immutability: -just return a new copy
+
+    Reducers : -No side effects
+               -Multiple per app
+               -Slice of state
+
+
+Modul 8
+
+ container : 
+    focus on how things work
+    aware of redux
+    subscribe to redux state
+    dispatch redux actions
+
+ presentational :
+    focus on how things look
+    unware of redux
+    read data from props
+    invoke callbacks on props
+
+
+video 3: 
+
+    1. vrapez entry pointul cu <Provider> si dau ca parametru Store
+    2. aceasta functie este un HOC care cere ca parametru mapStateToProps si mapDispatchToProps 
+            connect(mapStateToProps,mapDispatchToProps)(Component)
+    aceste functii sunt create in  fisierul js unde este clasa care foloseste functia conect
+
+    function mapStateToProps(state,ownProps){
+        return {authors:state.authors}
+    } 
+
+    function mapDispatchToProps (dispatch){
+        return{
+            actions:bindActionCreators(actions,dispatch)
+        }
+    }
+ 
+
+ modul 9:
+ 
